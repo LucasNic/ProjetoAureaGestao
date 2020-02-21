@@ -26,15 +26,15 @@ namespace AureaGestao
             //Conexão com o DB
             SqlConnection conexao = new SqlConnection(strcon);
             //Comunicação com o DB
-            SqlCommand Sqlcom = new SqlCommand("SELECT * FROM Alunos", conexao);
+            SqlCommand Sqlcom = new SqlCommand("SELECT * FROM Alunos where Nome like '%Lu%' ", conexao);
             
         try  //Tenta executar o que estiver abaixo
             {                                                                                                                  
                 conexao.Open(); // abre a conexão com o banco   
                 MessageBox.Show("Conexão Aberta");
                 Sqlcom.ExecuteNonQuery();
-                /*Após o comando Sqlcom.ExecuteNonQuery(); tudo que tinha dentro do banco foi selecionado, 
-                * agora os passos seguintes irão exibir as informações para que o usuário possa vê-las */
+                /*Após o comando Sqlcom.ExecuteNonQuery(); a consulta do "SQLCOM" foi executada, 
+                * agora os passos seguintes serão para trazer essas informações a nível de usuário */
 
                 SqlDataAdapter da = new SqlDataAdapter(); /*da, adapta o banco de dados ao projeto*/
                 DataSet ds = new DataSet(); /* DataSet do banco, contém as informações do Banco no Projeto */
