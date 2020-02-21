@@ -41,19 +41,17 @@ namespace AureaGestao
                 da.SelectCommand = Sqlcom; // adapta SqlCom ao projeto
                 da.Fill(ds); // preenche todas as informações dentro do DataSet                                          
                 dataGridView1.DataSource = ds; //O form "Datagridview" recebe ds já preenchido
-                dataGridView1.DataMember = ds.Tables[0].TableName;  /*Agora Datagridview exibe o banco de dados*/               
+                dataGridView1.DataMember = ds.Tables[0].TableName;  /* Agora Datagridview exibe os dados do banco */               
             }
             catch (Exception ex)
             {                 
-                MessageBox.Show("Erro "+ex.Message); /*Se ocorer algum erro será informado em um msgbox*/
+                MessageBox.Show("Erro "+ex.Message); /*Informa erro em um msgbox*/
                 throw;      
             }
  
             finally
             {         
-               conexao.Close(); /* Se tudo ocorrer bem fecha a conexão com o banco da dados, 
-                                 * sempre é bom fechar a conexão após executar até o final o que nos interessa, 
-                                 * isso pode evitar problemas futuros */
+               conexao.Close();
                MessageBox.Show("Conexão Fechada");
             }
 
